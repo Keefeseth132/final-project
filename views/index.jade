@@ -1,4 +1,38 @@
 extends layout
-
 block content
-	h1 Hello Boulder!
+
+	header.header-container
+		img.logo(src='images/logo.png')
+		.page-name Encyclopedia Budtanica
+		.navbar-float
+			nav
+				ul
+					a(href='/')
+						li.navbar-button.active-nav Home
+					a(href='about')
+						li.navbar-button About
+					a(href='suggestions')
+						li.navbar-button Suggestions
+					a(href='new-cannabis')
+						li.navbar-button I'm new to cannabis
+	.container(ng-controller='homeSearch')
+		#custom-search-input
+			.input-group
+				input#searchInput.form-control.input-lg(ng-model="search" ng-keyup="keyUpSearch()" type='text' placeholder='stress, pain, depression, insomnia, lack of appetite, seizures, muscle spasms, nausea')
+				span.input-group-btn
+					button.btn.btn-info.btn-lg(type='button')
+						span.glyphicon.glyphicon-search
+
+		.col-xs-12.col-sm-6.col-md-3(ng-repeat="strain in strains | filter:search" ng-show="showStrains")
+			.portfolio-item
+				.front.picture-title
+					h4 {{strain.name}}
+					img(ng-src='{{strain.image}}')
+				.back
+					ul
+						li Type: {{strain.type}}
+						li THC: {{strain.THC}}
+						li CBD: {{strain.CBD}}
+						li CBN: {{strain.CBN}}
+						li Effects: {{strain.effects}}
+						li Ailments: {{strain.ailments.join(', ')}}
