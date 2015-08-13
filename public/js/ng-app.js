@@ -115,3 +115,31 @@ $scope.keyUpSearch = function(){
 	$scope.showStrains = true;
 }
 })
+
+app.controller("suggestionBar", function($scope, $http){
+	$http.get("/api/suggestion").
+		then(function(responseData){
+
+			$scope.suggestions = responseData.data;
+			console.log('Page load', $scope.)
+		})
+
+	$scope.submitText = function(){
+		$http.post("/newsuggestion", {text : $scope.suggestion}).
+			then(function(responseData){
+				$scope.suggestions = ''
+				if (responseData.err) {
+					console.log(error)
+				}
+				else {
+					
+					$scope.suggestions = responseData.data;
+					console.log('Return', $scope.suggestions)
+				}
+			})
+	
+	}
+
+
+
+})

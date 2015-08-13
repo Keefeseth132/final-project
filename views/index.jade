@@ -23,7 +23,7 @@ block content
 					button.btn.btn-info.btn-lg(type='button')
 						span.glyphicon.glyphicon-search
 
-		.col-xs-12.col-sm-6.col-md-3(ng-repeat="strain in strains | filter:search" ng-show="showStrains")
+		.col-xs-12.col-sm-6.col-md-3(ng-repeat="strain in strains | filter:search")
 			.portfolio-item
 				.front.picture-title
 					h4 {{strain.name}}
