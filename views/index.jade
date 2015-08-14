@@ -15,6 +15,9 @@ block content
 						li.navbar-button Suggestions
 					a(href='new-cannabis')
 						li.navbar-button I'm new to cannabis
+					a(href="/logout" ng-show="!user")
+						li.navbar-button logout
+						
 	.container(ng-controller='homeSearch')
 		#custom-search-input
 			.input-group

@@ -1,11 +1,25 @@
 var Suggestion = require("../models/suggestion")
+var Strains = require("../models/strain")
+var mongoose = require('mongoose')
+
 var indexController = {
 	index: function(req, res) {
-		res.render('index');
+		res.render('index')
+	},
+
+	getStrains: function(req, res){
+		Strains.find({}, function(err, strains){
+			if (err){
+				console.log(err)
+			}
+			else {
+				res.send(strains)
+			}
+		})
 	},
 
 	about: function(req, res){
-		res.render('midterm-about', { pathname: req.path});
+		res.render('midterm-about', { pathname: req.path, user: req.user});
 	},
 
 	newCannabis: function(req, res){
@@ -26,7 +40,7 @@ var indexController = {
 	getSuggestions: function(req, res){
 		Suggestion.find({}, function(err, docs){
 			if (err){
-				console.log(error)
+				console.log(err)
 			}
 			else {
 				res.send(docs)

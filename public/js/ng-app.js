@@ -119,9 +119,7 @@ $scope.keyUpSearch = function(){
 app.controller("suggestionBar", function($scope, $http){
 	$http.get("/api/suggestion").
 		then(function(responseData){
-
 			$scope.suggestions = responseData.data;
-			console.log('Page load', $scope.)
 		})
 
 	$scope.submitText = function(){
@@ -132,14 +130,17 @@ app.controller("suggestionBar", function($scope, $http){
 					console.log(error)
 				}
 				else {
-					
 					$scope.suggestions = responseData.data;
-					console.log('Return', $scope.suggestions)
 				}
 			})
 	
 	}
 
+})
 
-
+app.controller("homeSearch", function($scope, $http){
+	$http.get("/api/strains").
+		then(function(responseData){
+			$scope.strains = responseData.data;
+		})
 })

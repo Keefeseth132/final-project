@@ -14,6 +14,9 @@ block content
 						li.navbar-button.active-nav Suggestions
 					a(href='new-cannabis')
 						li.navbar-button I'm new to cannabis
+					a(href="/logout" ng-show="!user")
+						li.navbar-button logout
+						
 	.container.text-color(ng-controller="suggestionBar")
 		.row
 			.col-md-12

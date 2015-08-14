@@ -14,6 +14,8 @@ block content
 						li.navbar-button Suggestions
 					a(href='new-cannabis')
 						li.navbar-button.active-nav I'm new to cannabis
+					a(href="/logout" ng-show="!user")
+						li.navbar-button logout
 	.container
 		h3.about-text Cannabis Effects
 		p.about-text.about-text-size
