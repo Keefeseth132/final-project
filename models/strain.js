@@ -8,7 +8,7 @@ var strainSchema = mongoose.Schema({
 	CBN : String,
 	effects : String,
 	ailments : [String],
-	image : String
+	image : String,
 })
 
 var Strains = mongoose.model('strains', strainSchema);

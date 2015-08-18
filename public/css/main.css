@@ -199,3 +199,14 @@ a:hover {
 	-webkit-transform: rotateY(0deg);
 	-webkit-transform-style: preserve-3d;
 }
+
+.favorite-icon {
+	position: absolute;
+	top: 180px;
+	right: 5px;
+	font-size: 18px;
+}
+
+.gold {
+	color: gold;
+}

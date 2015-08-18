@@ -13,21 +13,8 @@ html(lang='en' ng-app='app')
 
 	body
 		header.header-container
-			img.logo(src='images/logo.png')
+			img.logo(src='/images/logo.png')
 			.page-name Encyclopedia Budtanica
-			.navbar-float
-				nav(ng-controller="navbar")
-					ul
-						a(href='/')
-							li(ng-class="{'active-nav' : whereAreWe('/')}").navbar-button Home
-						a(href='about')
-							li(ng-class="{'active-nav' : whereAreWe('/about')}").navbar-button About
-						a(href='suggestions')
-							li(ng-class="{'active-nav' : whereAreWe('/suggestions')}").navbar-button Suggestions
-						a(href='new-cannabis')
-							li(ng-class="{'active-nav' : whereAreWe('/new-cannabis')}").navbar-button I'm new to cannabis
-						a(href="/logout" ng-show="!user")
-							li.navbar-button logout
 		block content
 
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js')

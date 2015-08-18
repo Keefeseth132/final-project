@@ -1,6 +1,7 @@
 var Suggestion = require("../models/suggestion")
 var Strains = require("../models/strain")
 var mongoose = require('mongoose')
+var User = require('../models/user')
 
 var indexController = {
 	index: function(req, res) {
@@ -33,7 +34,14 @@ var indexController = {
 	newSuggestion: function(req, res){
 		var suggestionText = new Suggestion(req.body);
 		suggestionText.save(function(err, doc){
-			res.send(doc);
+			Suggestion.find({}, function(err, docs){
+				if (err){
+					console.log(err)
+				}
+				else {
+					res.send(docs)
+				}
+			})
 		})
 	},
 
@@ -45,6 +53,26 @@ var indexController = {
 			else {
 				res.send(docs)
 			}
+		})
+	},
+
+	favorited: function(req, res){
+		var strainId = req.body._id
+		User.update({_id: req.user._id}, {$push: {favorites: strainId}}, function(err, updated){
+			User.findOne({_id: req.user.id}, function(err, doc){
+				req.user = doc
+				res.send(doc)
+			})
+		})
+	},
+
+	unfavorited: function(req, res){
+		var strainId = req.body._id
+		User.update({_id: req.user._id}, {$pull: {favorites: strainId}}, function(err, updated){
+			User.findOne({_id: req.user.id}, function(err, doc){
+				req.user = doc
+				res.send(doc)
+			})
 		})
 	}
 }

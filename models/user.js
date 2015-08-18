@@ -22,7 +22,11 @@ var userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  favorites: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'strains'
+  }]
 });
 
 /**

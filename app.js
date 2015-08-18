@@ -95,6 +95,12 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+app.post('/favorite', indexController.favorited)
+app.post('/unfavorite', indexController.unfavorited)
+app.get('/me', function(req, res){
+	res.send(req.user)
+})
+
 var server = app.listen(6158, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });

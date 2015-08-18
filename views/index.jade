@@ -1,23 +1,6 @@
 extends layout
 block content
 
-	header.header-container
-		img.logo(src='images/logo.png')
-		.page-name Encyclopedia Budtanica
-		.navbar-float
-			nav
-				ul
-					a(href='/')
-						li.navbar-button.active-nav Home
-					a(href='about')
-						li.navbar-button About
-					a(href='suggestions')
-						li.navbar-button Suggestions
-					a(href='new-cannabis')
-						li.navbar-button I'm new to cannabis
-					a(href="/logout" ng-show="!user")
-						li.navbar-button logout
-						
 	.container(ng-controller='homeSearch')
 		#custom-search-input
 			.input-group
@@ -39,3 +22,7 @@ block content
 						li CBN: {{strain.CBN}}
 						li Effects: {{strain.effects}}
 						li Ailments: {{strain.ailments.join(', ')}}
+					
+					.favorite-icon.pull-right.glyphicon.glyphicon-star.gold(ng-click="unfavorite(strain)" ng-show="strain.favorite")
+
+					.favorite-icon.pull-right.glyphicon.glyphicon-star(ng-click="favorite(strain)" ng-show="!strain.favorite")
