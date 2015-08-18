@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://localhost/budtanica')
 
-mongoose.connect('mongodb://localhost/budtanica' || process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/budtanica');
 
 // Express Session allows us to use Cookies to keep track of
 // a user across multiple pages. We also need to be able to load
