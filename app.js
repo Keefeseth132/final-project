@@ -3,7 +3,9 @@ var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/budtanica')
+// mongoose.connect('mongodb://localhost/budtanica')
+
+mongoose.connect('mongodb://localhost/budtanica' || process.env.MONGOLAB_URI);
 
 // Express Session allows us to use Cookies to keep track of
 // a user across multiple pages. We also need to be able to load
@@ -101,6 +103,6 @@ app.get('/me', function(req, res){
 	res.send(req.user)
 })
 
-var server = app.listen(6158, function() {
+var server = app.listen(process.env.PORT || 6158, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
