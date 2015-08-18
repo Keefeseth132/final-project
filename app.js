@@ -102,7 +102,7 @@ app.post('/unfavorite', indexController.unfavorited)
 app.get('/me', function(req, res){
 	res.send(req.user)
 })
-
-var server = app.listen(process.env.PORT || 6158, function() {
-	console.log('Express server listening on port ' + server.address().port);
-});
+var server = app.listen(process.env.PORT || 6158)
+// var server = app.listen(process.env.PORT || 6158, function() {
+// 	console.log('Express server listening on port ' + server.address().port);
+// });
