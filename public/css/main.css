@@ -205,16 +205,16 @@ a:hover {
 	-webkit-transform-style: preserve-3d;
 	-moz-transform: rotateY(180deg);
 	-moz-transform-style: preserve-3d;
-	animation-transform: rotateY(180deg);
-	animation-transform-style: preserve-3d;
+	transform: rotateY(180deg);
+	transform-style: preserve-3d;
 }
 .portfolio-item:hover .back {
 	-webkit-transform: rotateY(0deg);
 	-webkit-transform-style: preserve-3d;
 	-moz-transform: rotateY(0deg);
 	-moz-transform-style: preserve-3d;
-	animation-transform: rotateY(0deg);
-	animation-transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
 }
 
 .favorite-icon {
