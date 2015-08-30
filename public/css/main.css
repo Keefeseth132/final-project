@@ -162,7 +162,7 @@ a:hover {
 	backface-visibility: hidden;
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
-	animation: 1s;
+	transition: 1s;
 
 }
 .back {
@@ -173,11 +173,11 @@ a:hover {
 	z-index: -1;
 	-webkit-transform: rotateY(-180deg);
 	-moz-transform: rotateY(-180deg);
-	animation: rotateY(-180deg);
+	transform: rotateY(-180deg);
 	backface-visibility: hidden;
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
-	animation: 1s;
+	transition: 1s;
 
 }
 
